@@ -1,0 +1,20 @@
+
+<h1>Películas</h1>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Nombre</th>
+    <th>Año</th>
+    <th>Dirección y producción</th>
+    <th>Episodio</th>
+  </tr>
+  <% @results.each do |result|%>
+  <tr>
+    <td><%= result['title'] %></td>
+    <td><%= result['release_date'].split('-')[0] %></td>
+    <td><%= result['director'] %> | <%= result['producer'] %> </td>
+    <td><%= result['episode_id'] %></td>
+  </tr>
+  <% end %>
+</table>
