@@ -9,9 +9,9 @@
     <th>Dirección y producción</th>
     <th>Episodio</th>
   </tr>
-  <% @results.each do |result|%>
+  <% @results.each_with_index do |result, index|%>
   <tr>
-    <td><%= result['title'] %></td>
+    <td><%= link_to result['title'], controller: "films", action: "show", id: index+1%></td>
     <td><%= result['release_date'].split('-')[0] %></td>
     <td><%= result['director'] %> | <%= result['producer'] %> </td>
     <td><%= result['episode_id'] %></td>

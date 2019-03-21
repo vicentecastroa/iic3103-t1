@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/films', to: 'films#show_all'
 
+  get '/films/:id', to: 'films#show'
+
 end
