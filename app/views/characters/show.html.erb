@@ -23,8 +23,11 @@
   <li>
     Naves: 
       <ul>
-        <% @starships.each do |starship| %>
-          <li> <%= starship['name'] %> </li>
+        <% 
+          @starships.each do |starship| 
+          id = starship['url'].split('/')[-1]
+        %>
+          <li><%= link_to starship['name'], controller: "starships", action: "show", id: id %></li>
         <% end %>
       </ul>
   </li>
