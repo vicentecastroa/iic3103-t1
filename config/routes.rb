@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/films/:id', to: 'films#show'
 
+  get 'search/search', to: 'search#search'
+
 end
