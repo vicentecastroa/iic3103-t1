@@ -1,6 +1,6 @@
 <h1><%= @title %><h1>
 
-<ul style="font-size: 1.5rem; font-weight: 400;">
+<ul style="font-size: 1.5rem; font-weight: 300;">
   <li>Episodio: <%= @episode_id%></li>
   <li>Fecha de lanzamiento: <%= @release_date%></li>
   <li>Director: <%= @director%></li>
@@ -9,8 +9,11 @@
   <li>
     Personajes: 
       <ul>
-        <% @characters.each do |character| %>
-          <li> <%= character['name'] %> </li>
+        <% 
+          @characters.each do |character|
+          id = character['url'].split('/')[-1] 
+        %>
+          <li><%= link_to character['name'], controller: "characters", action: "show", id: id %></li>
         <% end %>
       </ul>
   </li>
