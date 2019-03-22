@@ -1,0 +1,42 @@
+<h1><%= @title %><h1>
+
+<ul style="font-size: 1.5rem; font-weight: 300;">
+  <li>Episodio: <%= @episode_id%></li>
+  <li>Fecha de lanzamiento: <%= @release_date%></li>
+  <li>Director: <%= @director%></li>
+  <li>Productor: <%= @producer%></li>
+  <li>Opening: <%= @opening%></li>
+  <li>
+    Personajes: 
+      <ul>
+        <% 
+          @characters.each do |character|
+          id = character['url'].split('/')[-1] 
+        %>
+          <li><%= link_to character['name'], controller: "characters", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+  <li>
+    Planetas: 
+      <ul>
+        <% 
+          @planets.each do |planet| 
+          id = planet['url'].split('/')[-1]
+        %>
+          <li><%= link_to planet['name'], controller: "planets", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+  <li>
+    Naves: 
+      <ul>
+        <% 
+          @starships.each do |starship| 
+          id = starship['url'].split('/')[-1]
+        %>
+          <li><%= link_to starship['name'], controller: "starships", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+</ul>

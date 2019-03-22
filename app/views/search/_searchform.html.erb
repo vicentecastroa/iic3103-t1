@@ -1,0 +1,7 @@
+<h3>Búsqueda</h3>
+
+<%= form_tag({controller: "search", action: "search"}, method: "get") do %>
+  <%= label_tag(:keyword, "") %>
+  <%= text_field_tag(:keyword) %>
+  <%= submit_tag("Buscar")%>
+<% end %>
