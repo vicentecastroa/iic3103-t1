@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
     @skin_color = json['skin_color']
     @birth_year = json['birth_year']
     @gender = json ['gender']
-    @homeworld = (JSON.parse (RestClient.get (json['homeworld'])))['name']
+    @homeworld = (JSON.parse (RestClient.get (json['homeworld'])))
 
     @films = Array.new
     json['films'].each do |url|

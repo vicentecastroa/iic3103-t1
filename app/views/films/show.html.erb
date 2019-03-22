@@ -20,8 +20,11 @@
   <li>
     Planetas: 
       <ul>
-        <% @planets.each do |planet| %>
-          <li> <%= planet['name'] %> </li>
+        <% 
+          @planets.each do |planet| 
+          id = planet['url'].split('/')[-1]
+        %>
+          <li><%= link_to planet['name'], controller: "planets", action: "show", id: id %></li>
         <% end %>
       </ul>
   </li>

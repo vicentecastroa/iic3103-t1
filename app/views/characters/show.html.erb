@@ -8,7 +8,14 @@
   <li>Color de ojos: <%= @eye_color%></li>
   <li>Año de nacimiento: <%= @birth_year%></li>
   <li>Género: <%= @gender%></li>
-  <li>Lugar de origen: <%= @homeworld%></li>
+  <li>Lugar de origen: 
+    <%= 
+      link_to @homeworld['name'], 
+      controller: "planets", 
+      action: "show", 
+      id: @homeworld['url'].split('/')[-1] 
+    %>
+  </li>
   <li>
     Películas: 
       <ul>
