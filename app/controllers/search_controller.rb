@@ -9,6 +9,7 @@ class SearchController < ApplicationController
     people = JSON.parse(RestClient.get "https://swapi.co/api/people/?search=#{keyword}")
     starships = JSON.parse(RestClient.get "https://swapi.co/api/starships/?search=#{keyword}")
     planets = JSON.parse(RestClient.get "https://swapi.co/api/planets/?search=#{keyword}")
+    
     @characters = Array.new
     people['results'].each do |character|
         @characters << character
