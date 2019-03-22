@@ -1,2 +1,40 @@
-<h1>Starships#show</h1>
-<p>Find me in app/views/starships/show.html.erb</p>
+<h1><%= @name %><h1>
+
+<ul style="font-size: 1.5rem; font-weight: 300;">
+  <li>Modelo: <%= @model%></li>
+  <li>Clase: <%= @starship_class%></li>
+  <li>Fabricante: <%= @manufacturer%></li>
+  <li>Precio en crédito: <%= @cost_in_credits%></li>
+  <li>Largo: <%= @length%></li>
+  <li>Velocidad máxima en atmósfera: <%= @max_atmosphering_speed%></li>
+  <li>Tripulación: <%= @crew%></li>
+  <li>Pasajeros: <%= @passengers%></li>
+  <li>Capacidad de carga: <%= @cargo_capacity%></li>
+  <li>Recursos disponibles: <%= @consumables%></li>
+  <li>Hiperpropulsión: <%= @hyperdrive_rating%></li>
+  <li>MGLT: <%= @MGLT%></li>
+
+  <li>
+    Pilotos: 
+      <ul>
+        <% 
+          @pilots.each do |pilot|
+          id = pilot['url'].split('/')[-1] 
+        %>
+          <li><%= link_to pilot['name'], controller: "characters", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+
+   <li>
+    Películas: 
+      <ul>
+        <% 
+          @films.each do |film| 
+          id = film['url'].split('/')[-1] 
+        %>
+          <li><%= link_to film['title'], controller: "films", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+</ul>
