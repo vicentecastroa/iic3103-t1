@@ -12,8 +12,11 @@
   <li>
     Películas: 
       <ul>
-        <% @films.each do |film| %>
-          <li> <%= film['title'] %> </li>
+        <% 
+          @films.each do |film| 
+          id = film['url'].split('/')[-1] 
+        %>
+          <li><%= link_to film['title'], controller: "films", action: "show", id: id %></li>
         <% end %>
       </ul>
   </li>
