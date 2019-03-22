@@ -1,2 +1,36 @@
-<h1>Planets#show</h1>
-<p>Find me in app/views/planets/show.html.erb</p>
+<h1><%= @name %><h1>
+
+<ul style="font-size: 1.5rem; font-weight: 300;">
+  <li>Período de rotación: <%= @rotation_period%></li>
+  <li>Período de traslación: <%= @orbital_period %></li>
+  <li>Diámetro: <%= @diameter%></li>
+  <li>Clima: <%= @climate%></li>
+  <li>Gravedad: <%= @gravity%></li>
+  <li>Terreno: <%= @terrain%></li>
+  <li>Superficie de agua: <%= @surface_water%></li>
+  <li>Población: <%= @population %></li>
+
+  <li>
+    Residentes: 
+      <ul>
+        <% 
+          @characters.each do |character|
+          id = character['url'].split('/')[-1] 
+        %>
+          <li><%= link_to character['name'], controller: "characters", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+  <li>
+    Películas: 
+      <ul>
+        <% 
+          @films.each do |film| 
+          id = film['url'].split('/')[-1] 
+        %>
+          <li><%= link_to film['title'], controller: "films", action: "show", id: id %></li>
+        <% end %>
+      </ul>
+  </li>
+</ul>
+
